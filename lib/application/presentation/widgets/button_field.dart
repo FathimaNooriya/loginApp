@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../domain/model/login_model.dart';
 import '../../business_logic/bloc/auth_bloc.dart';
-import '../screens/home.dart';
 import 'button.dart';
 
 class ButtonField extends StatelessWidget {
@@ -15,8 +13,7 @@ class ButtonField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
       if (state is AuthSuccess) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
+        Navigator.of(context).pushNamed("/home");
       }
     }, builder: (context, state) {
       if (state is AuthLoading) {

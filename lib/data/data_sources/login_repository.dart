@@ -19,6 +19,8 @@ class LoginRepository {
     } on FirebaseAuthException catch (e) {
       debugPrint("4");
       debugPrint(e.code);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.code)));
       if (e.code == 'user-not-found') {
         debugPrint("5");
         ScaffoldMessenger.of(context).showSnackBar(
